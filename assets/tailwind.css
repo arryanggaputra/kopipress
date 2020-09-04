@@ -1,0 +1,342 @@
+:root {
+  --primary: #dc2430;
+  --secondary: #7b4397;
+
+  --gradient-first: #dc2430;
+  --gradient-second: #7b4397;
+
+  --background-color: #ffffff;
+  --text-color: #222;
+
+  --link-color: var(--text-color);
+  --link-color-hover: var(--secondary);
+
+  --comment-background-color: transparent;
+  --comment-border-color: #edf2f7;
+
+  --categories-background: var(--secondary);
+}
+
+body {
+  background-color: var(--background-color);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #ffd078;
+    --secondary: #ffd078;
+    --background-color: #111;
+    --text-color: #fff;
+    --link-color-hover: #ffd078;
+    --comment-background-color: #2e3648;
+    --comment-border-color: transparent;
+
+    --categories-background: var(--comment-background-color);
+    /* --categories-link: var(--comment-background-color); */
+  }
+}
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@tailwind screens;
+
+ul.menu#navbar-menu {
+  @apply pl-5 hidden;
+}
+ul.menu#navbar-menu li a {
+  @apply text-white py-2 px-5 rounded-md;
+}
+ul.menu#navbar-menu li a:hover {
+  @apply bg-white text-secondary;
+}
+
+/* purgecss start ignore */
+
+.bg-gradient {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--gradient-first)),
+    to(var(--gradient-second))
+  );
+  background-image: linear-gradient(
+    90deg,
+    var(--gradient-first),
+    var(--gradient-second)
+  );
+}
+
+embed,
+iframe,
+object {
+  @apply max-w-full;
+}
+
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  position: relative;
+}
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+
+.kopidev-widget h2.widgettitle {
+  @apply m-0;
+}
+
+.sidebar > .widget_categories {
+  @apply p-10 text-white rounded-md;
+  background-color: var(--categories-background);
+}
+
+.sidebar > .widget_categories ul li {
+  content: none;
+  @apply m-0 p-0 list-none;
+}
+
+.sidebar > .widget_categories h2 {
+  @apply text-white no-underline mb-5;
+}
+.sidebar > .widget_categories ul {
+  @apply m-0 !important;
+}
+.sidebar > .widget_categories ul li a {
+  @apply py-1 block no-underline;
+  color: var(--categories-link);
+}
+.sidebar > .widget_categories ul li a:hover {
+  @apply underline;
+  color: var(--categories-link-hover);
+}
+.sidebar > .widget_categories ul li::before {
+  content: none;
+}
+/*--------------------------------------------------------------
+# Article
+--------------------------------------------------------------*/
+.post-image {
+  @apply float-none w-full pr-0 mt-5;
+}
+.post-image img {
+  @apply m-0 !important;
+}
+
+.entry-title {
+  @apply mb-0 mt-0 !important;
+}
+
+.entry-title a {
+  @apply no-underline !important;
+}
+
+.entry-title .avatar img {
+  @apply m-5 p-0 inline-block rounded-full !important;
+}
+
+/*--------------------------------------------------------------
+# Comments
+--------------------------------------------------------------*/
+.comment-list li {
+  @apply pl-0 !important;
+}
+.comment-list li::before,
+.comment-list ul li::before {
+  content: "" !important;
+  @apply hidden;
+}
+.comment-list ul {
+  @apply ml-0;
+}
+.comment-list ul li {
+  @apply mt-0 pb-0 mb-0 !important;
+}
+.comment-list a {
+  @apply .no-underline text-primary !important;
+}
+.comment-list .entry-meta {
+  @apply text-sm;
+}
+.comment-list .entry-meta a {
+  @apply text-gray-600 !important;
+}
+
+.comment-content a {
+  @apply break-words;
+}
+.depth-1.parent > .children,
+.depth-2.parent:not(:last-child) > .children {
+  @apply mb-0 border-b  !important;
+}
+
+.comment-list ul.children {
+  @apply rounded-lg rounded-t-none !important;
+  border-color: var(--comment-border-color);
+}
+
+.comment-meta .avatar {
+  @apply float-left mr-5 rounded-full my-0;
+}
+
+.comment-metadata .edit-link:before {
+  @apply hidden;
+}
+
+.comment-body {
+  @apply pt-8 px-0;
+  padding-bottom: 1.85rem;
+}
+
+.comment-content {
+  @apply mb-0 border p-5 rounded-lg !important;
+  background-color: var(--comment-background-color);
+  border-color: var(--comment-border-color);
+}
+
+.comment-content p {
+  @apply py-3 m-0 !important;
+}
+
+.comment .children {
+  padding-left: 30px;
+  margin-top: -30px;
+  @apply mb-0 border-l  rounded-lg !important;
+  border-color: var(--comment-border-color);
+}
+
+.comment-list > .comment:first-child {
+  @apply pt-0 mt-0 border-t-0;
+}
+
+/*--------------------------------------------------------------
+# Screen Reader Text
+--------------------------------------------------------------*/
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+  background-color: #eee;
+  clip: auto !important;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+# Comment Form
+--------------------------------------------------------------*/
+#commentform {
+  @apply pb-10;
+}
+#commentform .comment-form-cookies-consent {
+  @apply flex flex-row items-baseline;
+}
+#commentform p {
+  @apply m-0;
+}
+#commentform > label,
+#commentform .comment-form-comment > label {
+  @apply hidden;
+}
+#commentform .comment-form-cookies-consent > label {
+  @apply pl-3 pb-6 text-sm !important;
+}
+#commentform input[type="submit"] {
+  @apply bg-primary px-5 py-3 cursor-pointer;
+}
+#commentform textarea,
+#commentform input {
+  @apply block border bg-gray-100 text-black px-3 py-2 rounded-md mb-3 !important;
+  border-color: var(--comment-border-color);
+}
+#commentform textarea:focus,
+#commentform input:focus {
+  @apply outline-none bg-white;
+}
+#commentform input::placeholder {
+  @apply text-primary;
+}
+#commentform textarea {
+  @apply w-full;
+}
+
+/*--------------------------------------------------------------
+# breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+  border: 1px solid var(--comment-border-color);
+  background: var(--comment-background-color);
+}
+/*--------------------------------------------------------------
+# Table of contents CSS
+--------------------------------------------------------------*/
+.lwptoc {
+  @apply p-5 rounded-md;
+  border: 1px solid var(--comment-border-color);
+  background: var(--comment-background-color);
+}
+.lwptoc .lwptoc_items > ol > li,
+.lwptoc .lwptoc_items > ul > li {
+  @apply pl-0;
+}
+.lwptoc ol li a {
+  @apply text-primary no-underline;
+}
+.lwptoc ol,
+.lwptoc ol li,
+.lwptoc ul,
+.lwptoc ul li {
+  @apply m-0 text-base !important;
+}
+.lwptoc ol li a:hover,
+.lwptoc ul li a:hover {
+  @apply text-secondary underline;
+}
+.lwptoc ol li::before,
+.lwptoc ul li::before {
+  content: none;
+  @apply m-0 p-0 list-none;
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+
+@screen md {
+  ul.menu#navbar-menu {
+    @apply flex;
+  }
+  .comment-list ul {
+    @apply ml-10;
+  }
+
+  .post-image {
+    @apply float-left w-6/12 pr-5 mt-0;
+  }
+}
+
+/* purgecss end ignore */

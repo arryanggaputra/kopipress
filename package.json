@@ -1,0 +1,23 @@
+{
+  "name": "kopidev-improve",
+  "version": "1.0.0",
+  "description": "Kopidev wordpress theme",
+  "main": "index.js",
+  "author": "arryanggaputra@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "develop": "npx postcss ./assets/tailwind.css -o ./assets/style.css --watch",
+    "build": "export NODE_ENV=production && npx postcss ./assets/tailwind.css -o ./assets/style.css"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.6.2"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "cssnano": "^4.1.10"
+  }
+}
