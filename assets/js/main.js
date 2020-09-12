@@ -10,11 +10,13 @@ function prefetch(e) {
   l.href = e.target.href;
   document.head.appendChild(l);
 }
-document.documentElement.addEventListener("mouseover", prefetch, {
-  capture: true,
-  passive: true,
-});
-document.documentElement.addEventListener("touchstart", prefetch, {
-  capture: true,
-  passive: true,
-});
+window.onload = function () {
+  document.documentElement.addEventListener("mouseover", prefetch, {
+    capture: true,
+    passive: true,
+  });
+  document.documentElement.addEventListener("touchstart", prefetch, {
+    capture: true,
+    passive: true,
+  });
+};

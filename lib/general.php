@@ -5,8 +5,8 @@ function load_assets()
     wp_register_style('main-style', get_template_directory_uri() . '/assets/style.css', [], '1.0.0');
     wp_enqueue_style('main-style');
 
-    wp_register_script('main-script', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.0', true);
-    wp_enqueue_script('main-script');
+    // wp_register_script('main-script', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.0', true);
+    // wp_enqueue_script('main-script');
 }
 add_action('wp_enqueue_scripts', 'load_assets');
 
