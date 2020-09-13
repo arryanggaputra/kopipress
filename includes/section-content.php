@@ -6,7 +6,7 @@
         <h1 class="entry-title"><?php the_title();?></h1>
     </header>
     <?php endif;?>
-    <?php kopidev_breadcrumbs();?>
+    <?php do_action('kopidev_breadcrumbs');?>
     <?php the_content();?>
 </article><!-- #post -->
 <?php endwhile;?>

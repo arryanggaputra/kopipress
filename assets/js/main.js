@@ -20,3 +20,12 @@ window.onload = function () {
     passive: true,
   });
 };
+
+function kopidev_show_menu() {
+  var x = document.querySelector(".menu-primary-container");
+  if (x.style.display === "none" || !x.style.display) {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}

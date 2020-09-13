@@ -18,11 +18,12 @@ get_header();
     <div class="w-full md:w-8/12 pr-0 md:pr-5">
         <article id="post-<?php the_ID();?>" <?php post_class('px-6 pb-6 sm:px-5 md:px-0');?>
             <?php generate_do_microdata('article');?>>
-            <?php kopidev_breadcrumbs();?>
+            <?php do_action('kopidev_breadcrumbs');?>
             <?php the_content();?>
         </article><!-- #post -->
 
         <div class="px-5 md:px-0">
+            <?php //do_action('kopidev_related_posts');?>
             <?php comments_template();?>
         </div>
     </div>

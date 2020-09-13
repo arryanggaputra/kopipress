@@ -43,16 +43,6 @@ body {
 
 @tailwind screens;
 
-ul.menu#navbar-menu {
-  @apply pl-5 hidden;
-}
-ul.menu#navbar-menu li a {
-  @apply text-white py-2 px-5 rounded-md;
-}
-ul.menu#navbar-menu li a:hover {
-  @apply bg-white text-secondary;
-}
-
 /* purgecss start ignore */
 
 .bg-gradient {
@@ -80,6 +70,26 @@ object {
   margin-bottom: 1.5em;
   max-width: 100%;
   position: relative;
+}
+
+/*--------------------------------------------------------------
+# Navigation Bar
+--------------------------------------------------------------*/
+nav .menu-primary-container {
+  @apply w-full py-5 hidden;
+}
+
+ul.menu#navbar-menu {
+  @apply pl-0 block;
+}
+ul.menu#navbar-menu li {
+  @apply flex;
+}
+ul.menu#navbar-menu li a {
+  @apply text-white py-3 px-5;
+}
+ul.menu#navbar-menu li a:hover {
+  @apply text-secondary;
 }
 
 /*--------------------------------------------------------------
@@ -327,8 +337,18 @@ object {
 --------------------------------------------------------------*/
 
 @screen md {
+  nav .menu-primary-container {
+    @apply py-0 flex !important;
+  }
+
   ul.menu#navbar-menu {
-    @apply flex;
+    @apply flex pl-5 !important;
+  }
+  ul.menu#navbar-menu li a {
+    @apply py-2 px-5 rounded-md;
+  }
+  ul.menu#navbar-menu li a:hover {
+    @apply bg-white;
   }
   .comment-list ul {
     @apply ml-10;
