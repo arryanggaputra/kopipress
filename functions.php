@@ -1,4 +1,6 @@
 <?php
+$theme = wp_get_theme();
+define('THEME_VERSION', $theme->Version);
 
 $theme_dir = get_template_directory();
 

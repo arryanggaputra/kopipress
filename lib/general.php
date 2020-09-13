@@ -2,7 +2,7 @@
 
 function load_assets()
 {
-    wp_register_style('main-style', get_template_directory_uri() . '/assets/style.css', [], '1.0.0');
+    wp_register_style('main-style', get_template_directory_uri() . '/assets/style.css', [], THEME_VERSION);
     wp_enqueue_style('main-style');
 
     // wp_register_script('main-script', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.0', true);
