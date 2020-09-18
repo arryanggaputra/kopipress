@@ -57,23 +57,30 @@ function kopidev_pagination()
     ));
 }
 
-function add_preconnect_url()
-{
-    $preconnectSources = [
-        'https://googleads.g.doubleclick.net',
-        'https://www.google-analytics.com',
-        'https://www.googleadservices.com',
-        'https://www.googletagmanager.com',
-        'https://res.cloudinary.com',
-        'https://connect.facebook.net',
-    ];
-    $script = '';
-    foreach ($preconnectSources as $key => $value) {
-        $script .= '<link rel="preconnect" href="' . $value . '" crossorigin><link rel="dns-prefetch" href="' . $value . '">';
+if (!function_exists('kopidev_preconnect_url')) {
+    function kopidev_preconnect_url()
+    {
+        $preconnectSources = [
+            'https://googleads.g.doubleclick.net',
+            'https://www.google-analytics.com',
+            'https://ssl.google-analytics.com',
+            'https://pagead2.googlesyndication.com',
+            'https://tpc.googlesyndication.com',
+            'https://stats.g.doubleclick.net',
+            'https://www.gstatic.com',
+            'https://www.googleadservices.com',
+            'https://www.googletagmanager.com',
+            'https://res.cloudinary.com',
+            'https://connect.facebook.net',
+        ];
+        $script = '';
+        foreach ($preconnectSources as $key => $value) {
+            $script .= '<link rel="preconnect" href="' . $value . '" crossorigin><link rel="dns-prefetch" href="' . $value . '">';
+        }
+        echo $script;
     }
-    echo $script;
+    add_action('wp_head', 'kopidev_preconnect_url');
 }
-add_action('wp_head', 'add_preconnect_url');
 
 /**
  * Creates a nicely formatted and more specific title element text
