@@ -12,7 +12,7 @@
         --background-color: white;
         --box-color: #ebebeb;
         --text-color: #21262c;
-        --number-font-size: 2.4rem;
+        --number-font-size: 2rem;
         --heading-font-size: 1.6rem;
     }
 
@@ -144,7 +144,11 @@
     </style>
 </head>
 
-<body id="root" class="<?php echo ($_GET['dark'] ? 'darkmode' : ''); ?>">
+<body id="root" class="<?php
+if (isset($_GET['dark'])) {
+    echo 'darkmode';
+}
+?>">
     <div class="maincontainer">
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
@@ -152,29 +156,35 @@
         <h1>Update COVID-19 Indonesia</h1>
 
         <?php
-$unparsed_json = file_get_contents("https://api.kawalcorona.com/indonesia/");
+$unparsed_json = file_get_contents("https://dekontaminasi.com/api/id/covid19/stats/");
 
 $json_object = json_decode($unparsed_json, true);
-$data        = $json_object[0];
+$data        = $json_object['numbers'];
 $date        = date('Y-m-d H:i:s', strtotime('-3 hour'));
+
+function formatNumber($number)
+{
+    return number_format($number, 0, ",", ".");
+}
 
 ?>
 
         <div class="container">
             <div class="box">
-                <span class="number cornflowerblue" id="confirmed"><?php echo $data['positif']; ?></span>
+                <span class="number cornflowerblue" id="confirmed"><?php echo formatNumber($data['infected']); ?></span>
                 <span class="label">Terkonfirmasi</span>
             </div>
             <div class="box">
-                <span class="number orange" id="activeCare"><?php echo $data['dirawat']; ?></span>
+                <span class="number orange"
+                    id="activeCare"><?php echo formatNumber($data['infected'] - $data['recovered']); ?></span>
                 <span class="label">Dirawat</span>
             </div>
             <div class="box">
-                <span class="number green" id="recovered"><?php echo $data['sembuh']; ?></span>
+                <span class="number green" id="recovered"><?php echo formatNumber($data['recovered']); ?></span>
                 <span class="label">Sembuh</span>
             </div>
             <div class="box">
-                <span class="number red" id="deceased"><?php echo $data['meninggal']; ?></span>
+                <span class="number red" id="deceased"><?php echo formatNumber($data['fatal']); ?></span>
                 <span class="label">Meninggal</span>
             </div>
         </div>
