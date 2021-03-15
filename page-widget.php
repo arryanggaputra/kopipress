@@ -134,11 +134,11 @@
     }
 
     .footer .info {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 
     .footer .date {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         font-family: "IBM Plex Mono", monospace;
     }
     </style>
@@ -170,10 +170,7 @@ function formatNumber($number)
 ?>
 
         <div class="footer">
-            <span class="info">Pembaruan Terakhir</span>
-            <span class="date">
-                <span id="metadataDate"><?php echo $date; ?></span>
-            </span>
+            <span class="info">Pembaruan Terakhir <b id="metadataDate"><?php echo $date; ?></b></span>
         </div>
 
         <div class="container">
@@ -205,7 +202,7 @@ function formatNumber($number)
                 |
                 <a href="https://panel.niagahoster.co.id/ref/106488?r=hosting-murah" rel='nofollow' target="_blank"
                     title="Unlimited Hosting">
-                    Unlimited Hosting
+                    <b>Unlimited Hosting</b>
                 </a>
             </span>
         </div>
