@@ -134,11 +134,11 @@
     }
 
     .footer .info {
-        font-size: 0.7rem;
+        font-size: 0.5rem;
     }
 
     .footer .date {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         font-family: "IBM Plex Mono", monospace;
     }
     </style>
@@ -169,6 +169,13 @@ function formatNumber($number)
 
 ?>
 
+        <div class="footer">
+            <span class="info">Pembaruan Terakhir</span>
+            <span class="date">
+                <span id="metadataDate"><?php echo $date; ?></span>
+            </span>
+        </div>
+
         <div class="container">
             <div class="box">
                 <span class="number cornflowerblue" id="confirmed"><?php echo formatNumber($data['infected']); ?></span>
@@ -190,9 +197,7 @@ function formatNumber($number)
         </div>
 
         <div class="footer">
-            <span class="info">Pembaruan Terakhir</span>
             <span class="date">
-                <span id="metadataDate"><?php echo $date; ?></span>
                 <a href="//kopi.dev/widget-kawal-corona-wordpress-blogspot-statistik/" target="_blank"
                     title="Pasang widget kawal corona">
                     Pasang Widget
