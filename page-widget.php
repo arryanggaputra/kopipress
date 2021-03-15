@@ -198,8 +198,8 @@ function formatNumber($number)
                     Pasang Widget
                 </a>
                 |
-                <a href="https://panel.niagahoster.co.id/ref/106488?r=hosting-murah" target="_blank"
-                    title="Pasang widget kawal corona">
+                <a href="https://panel.niagahoster.co.id/ref/106488?r=hosting-murah" rel='nofollow' target="_blank"
+                    title="Unlimited Hosting">
                     Unlimited Hosting
                 </a>
             </span>
